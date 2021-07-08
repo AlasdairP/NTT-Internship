@@ -1,5 +1,8 @@
 """
-Trying to extend the standard H atom to an xy grid 
+Solves a 2D Schrodinger Eq for the H atom on a uniformly spaced 2D mesh (X,Y).
+Uses finite differences for d^2/dx^2 + d^2/dy^2
+Uses numerical diagonalisation of the Hamiltonian matrix
+Prints the energies and plots the probability densities as a colour plot on the x,y grid.
 
 """
 import numpy as np
