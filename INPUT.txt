@@ -1,0 +1,44 @@
+grid = exp
+delta = 60
+delta_min = 0.6
+delta_max = 0.6
+L = 300
+
+sep1 = 1.0
+sep2 = 4.0
+N1 = 100
+N2 = 50
+
+potential = Keldysh
+soft_core = 0.005
+
+Nx = 150
+Ny = 150
+
+eps = 13
+eps1 = 1
+eps2 = 1
+me = 0.2
+mh = 0.5
+rho0 = 10
+g_factor = -4
+spin = 0
+
+eigenstates = 4
+
+electric = True
+E_min = 10
+E_max = 10
+E_number = 1
+
+magnetic = True
+B_min = 0
+B_max = 40
+B_number = 5
+
+vx = 0
+vy = 0
+
+plot_potential_every_iteration = False
+plot_PD_every_iteration = False
+plot_phase_every_iteration = False

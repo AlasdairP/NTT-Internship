@@ -1,0 +1,51 @@
+#### All variables should be of the form "name = value".
+#### You must use = (not : for instance) but the number of spaces doesn't matter.
+#### You must use the names given exactly (case sensitive), this is how they're identified.
+#### The order in which you name write them doesn't matter, they're found by name not line number.
+#### Leaving a blank line is ok.
+
+
+
+grid = "exp" or "uniform"
+#### If using exp:
+delta = float, this has a big impact on the grid. 25 is ok usually.
+delta_min = float, in Angstroms.  
+delta_max = float, in Angstroms. 
+#### If using uniform:
+L = float, in Angstroms. Width of box. Can change Nx,Ny independently to balance accuracy/runtime
+
+potential = Keldysh
+soft_core = float, in Angstroms. Slight offset to avoid singularities at r=0. 0.005 works fine.
+Nx = int. Number of points in x direction
+Ny = int. Number of points in y direction
+eps = float, units of eps0 (i.e. relative). Dielectric constant of TMD.
+eps1 = float, units of eps0. Dielectric constant of substrate below.
+eps2 = float, units of eps0. Dielectric constant of substrate above.
+me = float, units of free electron mass. Effective electron mass. Often around 0.2
+mh = float, units of free electron mass. Effective hole mass. Often around 0.5
+rho0 = float, in Angstroms. Screening length. rho0 = D*eps/(eps1 + eps2) where D is thickness of TMD.
+g_factor = float. Lande g-factor. Always -4.1? See Hogele 2020.
+spin = +1 or -1 (or 0 if not including spin (Zeeman) effect).
+
+eigenstates = int. Number of eigenstates to find (more is slower).
+
+electric = True or False
+#### If True:
+E_min = min value of range, in kV/cm.  e.g. 0
+E_max = max value of range, in kV/cm.  
+E_number = int, number of electric field points to sample (linearly interpolated between min and max). Solves for eigenstates at each value so quite costly.
+
+magnetic = True or False
+#### If True:
+B_min = min value of range, in Tesla.  e.g. 0
+B_max = max value of range, in Tesla
+B_number = int, number of electric field points to sample (linearly interpolated between min and max). Solves for eigenstates at each value so quite costly.
+
+#### NOTE if including simultaneous E and B, currently I can only do a constant E with varying B, so set E_number = 1 and E_min = your constant E
+
+vx = (constant) speed in x direction. Used to generate E_eff (and CoM kinetic if needed) terms.
+vy = (constant) speed in y direction. Set both = 0 to model exciton at rest.
+
+plot_potential_every_iteration = True or False. Choose whether to plot a linecut along x of the potential landscape for each value of the field.
+plot_PD_every_iteration = True or False. Choose whether to plot probability density (colour map) for each value of the field. If True, will prompt for which state you would like to plot (can change each iteration)
+plot_phase_every_iteration = True or False. Choose whether to plot phase of the chosen state (as colour map) for each field value. Plotted in Radians (i.e. up to 6.29 = 2pi)
