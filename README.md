@@ -1,11 +1,14 @@
 # NTT-Internship
-Summer 2021, "enhancing polariton-polariton interactions via a mediating material"
+Summer 2021. Simulating excitons in monolayer TMDs under electric and magnetic fields.
 
-Starting with a simulation of excitons in TMDs - using a finite differences scheme. 
-The user can choose a uniform or exponentially spaced grid, and a Coulomb or Keldysh potential. The Keldysh is well known to be more accurate for very thin (quasi-2D) materials.
-The user can also choose to add a uniform in-plane electric field or perpendicular magnetic field.
+The user can choose various thingsm for example a uniform or exponentially spaced grid, and a Coulomb or Keldysh potential. The Keldysh is well known to be more accurate for very thin (quasi-2D) materials. All of these choices, along with the material parameters, are defined in INPUT.txt.
 
-The main code currently (as of 22/7/21) is Excitons_in_TMDs.py, which uses Finite_differences.py, Potentials.py and Grids_2D.py.
-The other scripts (begining GaAs... or Hydrogen...) are earlier versions and are now somewhat redundant (unless you actually want to simulate a Hydrogen atom of course).
+The user can also choose to add a uniform in-plane electric field, out-of-plane magnetic field or both simultaneously (currently only constant E field with varying B field, which is usually the experimentally relevant option).
+
+The main code currently (as of Wed 8/9/21) is Excitons_in_TMDs.py, which uses INPUT.txt, Finite_differences.py, Potentials.py, Grids_2D.py, Symmetrise_and_solve.py and Plotting.py.
+
+INPUT_explanantions.txt explains all the input parameters in INPUT.txt.
+
+There were various old scripts (beginning from simple models of the hydrogen atom) which I have now deleted from here.
 
 
